@@ -25,12 +25,12 @@ Además de sus funcionalidades básicas, el proyecto tiene como objetivo princip
 
 * **RF-03 Gestión de Alumnos**: Dar de alta, baja, modificar y consultar información personal y académica de los alumnos (inscripciones, datos de contacto).
 * **RF-04 Gestión de Docentes**: Registro, edición y asignación de profesores a sus respectivas materias y grupos.
-* **RF-05 Gestión de Materias y Grupos**: Creación de asignaturas, planes de estudio (IDyGS o actual), horarios y asignación de cupos por grupo (máximo 25 personas por grupo).
+* **RF-05 Gestión de Materias y Grupos**: Creación de asignaturas, planes de estudio, horarios y asignación de cupos por grupo (máximo 25 personas por grupo).
 
 ### Módulo de Docentes
 
 * **RF-06 Registro de Calificaciones**: Los docentes pueden ingresar y modificar las notas de los alumnos inscritos en sus materias durante los periodos permitidos.
-* **RF-07 Control de Asistencia**: Pasar lista y registrar asistencias/inasistencias de los estudiantes (1=asistencia, 0=falta, J=falta justificada, /=retardo).
+* **RF-07 Control de Asistencia**: Pasar lista y registrar asistencias/inasistencias de los estudiantes.
 
 ### Módulo de Alumnos
 
@@ -52,43 +52,39 @@ Además de sus funcionalidades básicas, el proyecto tiene como objetivo princip
 
 ## Estructura del proyecto
 
-```text
 ControlEscolar
 │
 ├── api
-│   ├── config.js              ← Configuración de endpoints de la API
-│   └── client.js              ← Cliente HTTP para peticiones
+│ ├── config.js ← Configuración de endpoints de la API
+│ └── client.js ← Cliente HTTP para peticiones
 │
 ├── services
-│   ├── admin.service.js       ← Servicios del módulo administración
-│   ├── teacher.service.js     ← Servicios del módulo docentes
-│   └── student.service.js     ← Servicios del módulo alumnos
+│ ├── admin.service.js ← Servicios del módulo administración
+│ ├── teacher.service.js ← Servicios del módulo docentes
+│ └── student.service.js ← Servicios del módulo alumnos
 │
 ├── scripts
-│   ├── admin.js               ← Lógica del módulo administración
-│   ├── teacher.js             ← Lógica del módulo docentes
-│   ├── student.js             ← Lógica del módulo alumnos
-│   ├── login.js               ← Lógica de autenticación
-│   └── index.js               ← Lógica de la página principal
+│ ├── admin.js ← Lógica del módulo administración
+│ ├── teacher.js ← Lógica del módulo docentes
+│ ├── student.js ← Lógica del módulo alumnos
+│ ├── login.js ← Lógica de autenticación
+│ └── index.js ← Lógica de la página principal
 │
 ├── styles
-│   ├── admin.css              ← Estilos del módulo administración
-│   ├── teacher.css            ← Estilos del módulo docentes
-│   ├── student.css            ← Estilos del módulo alumnos
-│   ├── login.css              ← Estilos de la página de login
-│   └── index.css              ← Estilos de la página principal
+│ ├── admin.css ← Estilos del módulo administración
+│ ├── teacher.css ← Estilos del módulo docentes
+│ ├── student.css ← Estilos del módulo alumnos
+│ ├── login.css ← Estilos de la página de login
+│ └── index.css ← Estilos de la página principal
 │
 ├── views
-│   ├── admin.html             ← Vista del módulo administración
-│   ├── teacher.html           ← Vista del módulo docentes
-│   └── student.html           ← Vista del módulo alumnos
+│ ├── admin.html ← Vista del módulo administración
+│ ├── teacher.html ← Vista del módulo docentes
+│ └── student.html ← Vista del módulo alumnos
 │
-├── index.html                 ← Página principal (menú de acceso)
-├── login.html                 ← Pantalla de autenticación
-└── README.md                  ← Documentación del proyecto
-
-
-
+├── index.html ← Página principal (menú de acceso)
+├── login.html ← Pantalla de autenticación
+└── README.md ← Documentación del proyecto
 
 ---
 

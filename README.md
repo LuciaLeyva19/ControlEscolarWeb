@@ -1,8 +1,8 @@
-# ControlEscolar
+# ControlEscolarWeb
 
 ## Descripción
 
-**ControlEscolar** es una aplicación web desarrollada con HTML, CSS y JavaScript cuyo propósito es simular un sistema de gestión académica para instituciones educativas. El proyecto permite administrar alumnos, docentes, materias, grupos, calificaciones, asistencias y consultar información académica mediante una interfaz sencilla e intuitiva.
+**ControlEscolarWeb** es una aplicación web desarrollada con HTML, CSS y JavaScript cuyo propósito es simular un sistema de gestión académica para instituciones educativas. El proyecto permite administrar alumnos, docentes, materias, grupos, calificaciones, asistencias y consultar información académica mediante una interfaz sencilla e intuitiva.
 
 Además de sus funcionalidades básicas, el proyecto tiene como objetivo principal demostrar el uso de herramientas de control de versiones y trabajo colaborativo mediante Git y GitHub.
 
@@ -57,8 +57,6 @@ Además de sus funcionalidades básicas, el proyecto tiene como objetivo princip
 * GitHub
 
 ---
-
-## Estructura del proyecto
 
 ## Estructura del proyecto
 

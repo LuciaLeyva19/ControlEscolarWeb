@@ -1,0 +1,44 @@
+/* ============================================
+   CONTROL ESCOLAR WEB - INDEX
+   Paleta institucional
+   ============================================ */
+
+:root {
+    --primary-dark: #0d1b4a;
+    --primary: #1a237e;
+    --primary-medium: #283593;
+    --primary-light: #3949ab;
+    --primary-bg: #e8eaf6;
+}
+
+.module-card {
+    transition: all 0.3s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(26, 35, 126, 0.15) !important;
+}
+
+.module-card:hover .rounded-circle {
+    background-color: #283593 !important;
+}
+
+.module-card:hover .rounded-circle i {
+    color: white !important;
+}
+
+.nav-link:hover {
+    opacity: 1 !important;
+}
+
+/* RNF-05: Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .module-card {
+        margin-bottom: 1rem;
+    }
+}

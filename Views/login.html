@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Escolar Web - Iniciar Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body class="d-flex align-items-center justify-content-center min-vh-100" 
+      style="background: linear-gradient(135deg, #0d1b4a 0%, #1a237e 50%, #283593 100%);">
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+                
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-5">
+                        
+                        <!-- Logo -->
+                        <div class="text-center mb-4">
+                            <div class="d-inline-flex align-items-center justify-content-center mb-3 rounded-circle" 
+                                 style="width: 80px; height: 80px; background-color: #e8eaf6;">
+                                <i class="bi bi-mortarboard-fill display-6" style="color: #0d1b4a;"></i>
+                            </div>
+                            <h4 class="fw-bold mb-1" style="color: #0d1b4a;">Control Escolar Web</h4>
+                        </div>
+                        
+                        <!-- RF-01: Autenticación - El sistema detecta el rol automáticamente -->
+                        <form id="loginForm">
+                            
+                            <!-- Usuario -->
+                            <div class="mb-3">
+                                <label for="username" class="form-label fw-semibold" style="color: #424242;">
+                                    <i class="bi bi-person-fill" style="color: #283593;"></i> Usuario
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text" style="background-color: #e8eaf6; border-color: #e0e0e0;">
+                                        <i class="bi bi-person" style="color: #283593;"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="username" 
+                                           placeholder="Correo o matrícula" required
+                                           style="border-color: #e0e0e0; background-color: #f5f5f5;">
+                                </div>
+                            </div>
+                            
+                            <!-- Contraseña -->
+                            <div class="mb-4">
+                                <label for="password" class="form-label fw-semibold" style="color: #424242;">
+                                    <i class="bi bi-lock-fill" style="color: #283593;"></i> Contraseña
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text" style="background-color: #e8eaf6; border-color: #e0e0e0;">
+                                        <i class="bi bi-lock" style="color: #283593;"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" 
+                                           placeholder="Ingresa tu contraseña" required
+                                           style="border-color: #e0e0e0; background-color: #f5f5f5;">
+                                    <button class="btn" type="button" id="togglePassword" 
+                                            style="border: 1px solid #e0e0e0;">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Botón -->
+                            <button type="submit" class="btn w-100 py-2 mb-3 fw-semibold text-white"
+                                    style="background-color: #283593; border: none; transition: 0.3s;"
+                                    onmouseover="this.style.backgroundColor='#3949ab'"
+                                    onmouseout="this.style.backgroundColor='#283593'">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Iniciar Sesión
+                            </button>
+                            
+                            <!-- Indicador de carga -->
+                            <div id="loadingIndicator" class="text-center d-none mb-3">
+                                <div class="spinner-border spinner-border-sm" style="color: #283593;" role="status">
+                                    <span class="visually-hidden">Cargando...</span>
+                                </div>
+                                <span class="ms-2" style="color: #757575;">Verificando credenciales...</span>
+                            </div>
+                            
+                            <!-- Mensaje de error -->
+                            <div id="errorMessage" class="alert d-none py-2 text-center" role="alert"
+                                 style="background-color: #e53935; color: white; font-size: 0.9rem;">
+                                <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                                <span id="errorText"></span>
+                            </div>
+                            
+                            <!-- Mensaje de éxito -->
+                            <div id="successMessage" class="alert d-none py-2 text-center" role="alert"
+                                 style="background-color: #43a047; color: white; font-size: 0.9rem;">
+                                <i class="bi bi-check-circle-fill me-1"></i>
+                                <span id="successText"></span>
+                            </div>
+                            
+                        </form>
+                    </div>
+                    
+                </div>
+                
+               
+                
+                <p class="text-center text-white mt-3 opacity-75 small">
+                    © 2026 Control Escolar Web 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- LÓGICA DE AUTENTICACIÓN -->
+    <script>
+        
+        // ============================================
+        // RF-01: AUTENTICACIÓN CON DETECCIÓN DE ROL
+        // ============================================
+        
+        // Mostrar/ocultar contraseña
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const password = document.getElementById('password');
+            const icon = this.querySelector('i');
+            if (password.type === 'password') {
+                password.type = 'text';
+                icon.classList.replace('bi-eye', 'bi-eye-slash');
+            } else {
+                password.type = 'password';
+                icon.classList.replace('bi-eye-slash', 'bi-eye');
+            }
+        });
+
+        // Simulación de base de datos de usuarios
+        const usuarios = [
+            {
+                username: 'admin@escuela.edu',
+                password: 'admin123',
+                role: 'admin',
+                name: 'Administrador',
+                redirect: 'views/admin.html'
+            },
+            {
+                username: 'docente@escuela.edu',
+                password: 'docente123',
+                role: 'teacher',
+                name: 'Dr. Roberto Mendez',
+                redirect: 'views/teacher.html'
+            },
+            {
+                username: 'A001',
+                password: 'alumno123',
+                role: 'student',
+                name: 'Ana García López',
+                redirect: 'views/student.html'
+            }
+        ];
+
+        // Manejo del formulario
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            
+            // Ocultar mensajes anteriores
+            document.getElementById('errorMessage').classList.add('d-none');
+            document.getElementById('successMessage').classList.add('d-none');
+            
+            // Validar campos vacíos
+            if (!username || !password) {
+                mostrarError('Por favor completa todos los campos.');
+                return;
+            }
+            
+            // Mostrar carga
+            document.getElementById('loadingIndicator').classList.remove('d-none');
+            
+            // Simular tiempo de respuesta (RNF-03: < 2 segundos)
+            setTimeout(() => {
+                
+                // Buscar usuario
+                const usuario = usuarios.find(u => 
+                    u.username.toLowerCase() === username.toLowerCase() && 
+                    u.password === password
+                );
+                
+                // Ocultar carga
+                document.getElementById('loadingIndicator').classList.add('d-none');
+                
+                if (usuario) {
+                    // RF-02: El sistema detecta el rol automáticamente
+                    mostrarExito(`Rol detectado: ${usuario.role.toUpperCase()} - Redirigiendo...`);
+                    
+                    // Guardar sesión (simulación)
+                    localStorage.setItem('currentUser', JSON.stringify({
+                        username: usuario.username,
+                        role: usuario.role,
+                        name: usuario.name,
+                        loginTime: new Date().toISOString()
+                    }));
+                    
+                    // Redirigir según rol detectado
+                    setTimeout(() => {
+                        window.location.href = usuario.redirect;
+                    }, 1500);
+                    
+                } else {
+                    mostrarError('Credenciales incorrectas. Verifica tu usuario y contraseña.');
+                }
+                
+            }, 1500); // Simula RNF-03: tiempo < 2 segundos
+            
+        });
+        
+        function mostrarError(mensaje) {
+            const errorDiv = document.getElementById('errorMessage');
+            document.getElementById('errorText').textContent = mensaje;
+            errorDiv.classList.remove('d-none');
+        }
+        
+        function mostrarExito(mensaje) {
+            const successDiv = document.getElementById('successMessage');
+            document.getElementById('successText').textContent = mensaje;
+            successDiv.classList.remove('d-none');
+        }
+        
+    </script>
+    
+</body>
+</html>

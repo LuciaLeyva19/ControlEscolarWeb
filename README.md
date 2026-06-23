@@ -21,6 +21,14 @@ Además de sus funcionalidades básicas, el proyecto tiene como objetivo princip
 
 ## Funcionalidades
 
+### Módulo de Autenticación
+
+* **Inicio de sesión seguro**: Autenticación de usuarios mediante JWT (JSON Web Tokens).
+* **Encriptación de contraseñas**: Las contraseñas se almacenan de forma segura utilizando bcrypt.
+* **Control de acceso por roles**: Cada usuario accede únicamente a su módulo correspondiente (admin, teacher, student).
+* **Protección de rutas**: Las vistas están protegidas y solo accesibles con un token válido.
+* **Cierre de sesión**: Eliminación del token para finalizar la sesión de forma segura.
+
 ### Módulo de Administración (Control Escolar)
 
 * **RF-03 Gestión de Alumnos**: Dar de alta, baja, modificar y consultar información personal y académica de los alumnos (inscripciones, datos de contacto).
@@ -44,7 +52,7 @@ Además de sus funcionalidades básicas, el proyecto tiene como objetivo princip
 * HTML5
 * CSS3
 * JavaScript (ES6+)
-* Fetch API (consumo de servicios REST)
+* API (consumo de servicios REST)
 * Git
 * GitHub
 
@@ -52,39 +60,43 @@ Además de sus funcionalidades básicas, el proyecto tiene como objetivo princip
 
 ## Estructura del proyecto
 
+## Estructura del proyecto
+
+```
 ControlEscolar
 │
 ├── api
-│ ├── config.js ← Configuración de endpoints de la API
-│ └── client.js ← Cliente HTTP para peticiones
+│   ├── config.js
+│   └── client.js
 │
 ├── services
-│ ├── admin.service.js ← Servicios del módulo administración
-│ ├── teacher.service.js ← Servicios del módulo docentes
-│ └── student.service.js ← Servicios del módulo alumnos
+│   ├── admin.service.js
+│   ├── teacher.service.js
+│   └── student.service.js
 │
 ├── scripts
-│ ├── admin.js ← Lógica del módulo administración
-│ ├── teacher.js ← Lógica del módulo docentes
-│ ├── student.js ← Lógica del módulo alumnos
-│ ├── login.js ← Lógica de autenticación
-│ └── index.js ← Lógica de la página principal
+│   ├── admin.js
+│   ├── teacher.js
+│   ├── student.js
+│   ├── login.js
+│   └── index.js
 │
 ├── styles
-│ ├── admin.css ← Estilos del módulo administración
-│ ├── teacher.css ← Estilos del módulo docentes
-│ ├── student.css ← Estilos del módulo alumnos
-│ ├── login.css ← Estilos de la página de login
-│ └── index.css ← Estilos de la página principal
+│   ├── admin.css
+│   ├── teacher.css
+│   ├── student.css
+│   ├── login.css
+│   └── index.css
 │
 ├── views
-│ ├── admin.html ← Vista del módulo administración
-│ ├── teacher.html ← Vista del módulo docentes
-│ └── student.html ← Vista del módulo alumnos
+│   ├── admin.html
+│   ├── teacher.html
+│   └── student.html
 │
-├── index.html ← Página principal (menú de acceso)
-├── login.html ← Pantalla de autenticación
-└── README.md ← Documentación del proyecto
+├── index.html
+├── login.html
+└── README.md
+```
 
 ---
 

@@ -89,10 +89,10 @@ ControlEscolar
 ├── views
 │   ├── admin.html
 │   ├── teacher.html
-│   └── student.html
+│   ├── student.html
+│   ├── index.html          ← Página principal
+│   └── login.html          ← Pantalla de autenticación
 │
-├── index.html
-├── login.html
 └── README.md
 ```
 

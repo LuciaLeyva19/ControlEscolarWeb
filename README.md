@@ -63,37 +63,37 @@ Además de sus funcionalidades básicas, el proyecto tiene como objetivo princip
 ```
 ControlEscolar
 │
-├── api
-│   ├── config.js
-│   └── client.js
+├── 📁 api
+│   ├── 📄 config.js              ← Configuración de endpoints y URLs de la API
+│   └── 📄 client.js              ← Cliente HTTP con manejo de tokens JWT y peticiones
 │
-├── services
-│   ├── admin.service.js
-│   ├── teacher.service.js
-│   └── student.service.js
+├── 📁 services
+│   ├── 📄 admin.service.js       ← Servicios para gestión de alumnos, docentes, materias y grupos (RF-03, RF-04, RF-05)
+│   ├── 📄 teacher.service.js     ← Servicios para calificaciones y asistencia (RF-06, RF-07)
+│   └── 📄 student.service.js     ← Servicios para kardex y horarios (RF-08, RF-09)
 │
-├── scripts
-│   ├── admin.js
-│   ├── teacher.js
-│   ├── student.js
-│   ├── login.js
-│   └── index.js
+├── 📁 scripts
+│   ├── 📄 admin.js               ← Lógica del módulo administración: CRUD alumnos, docentes, materias
+│   ├── 📄 teacher.js             ← Lógica del módulo docentes: registro de calificaciones y asistencia
+│   ├── 📄 student.js             ← Lógica del módulo alumnos: consulta de kardex y horarios
+│   ├── 📄 login.js               ← Lógica de autenticación: login, validación, manejo de tokens
+│   └── 📄 index.js               ← Lógica de la página principal: navegación y carga inicial
 │
-├── styles
-│   ├── admin.css
-│   ├── teacher.css
-│   ├── student.css
-│   ├── login.css
-│   └── index.css
+├── 📁 styles
+│   ├── 📄 admin.css              ← Estilos exclusivos del módulo administración
+│   ├── 📄 teacher.css            ← Estilos exclusivos del módulo docentes
+│   ├── 📄 student.css            ← Estilos exclusivos del módulo alumnos
+│   ├── 📄 login.css              ← Estilos de la página de autenticación
+│   └── 📄 index.css              ← Estilos de la página principal
 │
-├── views
-│   ├── admin.html
-│   ├── teacher.html
-│   ├── student.html
-│   ├── index.html          ← Página principal
-│   └── login.html          ← Pantalla de autenticación
+├── 📁 views
+│   ├── 📄 admin.html             ← Vista del administrador: gestión completa del sistema
+│   ├── 📄 teacher.html           ← Vista del docente: calificaciones y asistencia
+│   ├── 📄 student.html           ← Vista del alumno: kardex y horarios
+│   ├── 📄 index.html             ← Página principal: menú de acceso y bienvenida
+│   └── 📄 login.html             ← Pantalla de autenticación: login con JWT
 │
-└── README.md
+└── 📄 README.md                  ← Documentación completa del proyecto
 ```
 
 ---
